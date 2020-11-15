@@ -1,9 +1,9 @@
 {
-  "name": "next-client-script",
+  "name": "@finom/next-client-script",
   "version": "0.1.0",
   "description": "Add a separate client entry point to your Next.js pages.",
-  "repository": "https://github.com/amannn/next-client-script",
-  "author": "Jan Amann <jan@amann.me>",
+  "repository": "https://gitlab.com/M69/marketing/next-client-script",
+  "author": "tinkerscript",
   "license": "MIT",
   "files": [
     "ClientScript.*",
