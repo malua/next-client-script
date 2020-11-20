@@ -4731,6 +4731,16 @@ neo-async@2.6.1, neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
+next-client-script@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/next-client-script/-/next-client-script-0.1.0.tgz#6d098805029d3de0bb61a7db915f9a3b8e35d8a4"
+  integrity sha512-0fJ3IMHKwFmJ/zkhXPAETk/9PLWBItckrBfaIfw/rZhWraqZLjP1vqJKLPnwyvO7kdBd20RL0vmtT5DnIELVkg==
+  dependencies:
+    chalk "^4.0.0"
+    next-transpile-modules "^4.1.0"
+    path-to-regexp "6.1.0"
+    webpack "^4.44.1"
+
 next-images@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/next-images/-/next-images-1.4.0.tgz#be21d20e9437debe2dd3b5d0ef5847dd6fc77cec"
