@@ -92,7 +92,13 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
               ...config.optimization,
               // Output only a single JavaScript asset that
               // contains all necessary client code.
-              runtimeChunk: undefined as undefined
+              runtimeChunk: undefined as undefined,
+              splitChunks: {
+                chunks() {
+                  return false;
+                },
+                cacheGroups: {}
+              }
             },
             plugins: (config.plugins || []).filter(
               (plugin: any) =>
