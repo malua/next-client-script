@@ -1,7 +1,7 @@
 import path from 'path';
 import chalk from 'chalk';
 import withTM from 'next-transpile-modules';
-import webpack, {Compiler, Stats} from 'webpack';
+import webpack, {Compiler} from 'webpack';
 import ClientScriptsByPath from './ClientScriptsByPath';
 
 const NEXT_PATH = '/_next';
@@ -111,15 +111,13 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           };
 
           const compiler: Compiler = nextWebpack(clientConfig);
-          compiler.run((compilerError, stats: Stats) => {
-            const { compilation: { errors = [] } = {} } = {} = stats;
-
+          compiler.run((compilerError, stats) => {
             let errorMessage;
             if (compilerError) {
               errorMessage = compilerError.message;
             }
-            if (errors.length > 0) {
-              errorMessage = errors
+            if (stats.compilation.errors.length > 0) {
+              errorMessage = stats.compilation.errors
                 .map((compilationError) => {
                   let message;
                   if (compilationError.message) {
