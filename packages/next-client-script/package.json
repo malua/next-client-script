@@ -1,6 +1,6 @@
 {
   "name": "@M69/next-client-script",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Add a separate client entry point to your Next.js pages.",
   "repository": "https://gitlab.com/M69/marketing/next-client-script",
   "author": "tinkerscript",
@@ -11,7 +11,8 @@
     "ClientWidget.*",
     "initWidgets.*",
     "withClientScripts.*",
-    "tslib.*"
+    "tslib.*",
+    "dummy.config"
   ],
   "engines": {
     "node": ">=10"
@@ -20,7 +21,7 @@
     "dev": "rm -rf ./dist && rollup -c rollup.config.js --watch",
     "build": "rm -rf ./dist && rollup -c rollup.config.js",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && tsc --noEmit",
-    "prepublishOnly": "yarn lint && yarn build && cp dist/* . && cp ../../README.md . && cp ../../CHANGELOG.md ."
+    "prepublishOnly": "yarn lint && yarn build && cp dist/* . && cp ../../README.md . && cp ../../CHANGELOG.md . && cp src/dummy.config ."
   },
   "dependencies": {
     "chalk": "^4.0.0",
