@@ -109,7 +109,8 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
                 ].includes(plugin.constructor.name)
             ),
             module: {
-              rules: [
+              ...config?.module,
+              rules: (config?.module?.rules || []).concat([
                 {
                   test: path.resolve(__dirname, 'dummy.config'),
                   use: {
@@ -119,10 +120,12 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
                     }
                   }
                 }
-              ]
+              ])
             },
             resolve: {
+              ...config?.resolve,
               alias: {
+                ...config?.resolve?.alias,
                 config: path.resolve(__dirname, 'dummy.config')
               }
             }
@@ -134,7 +137,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             if (compilerError) {
               errorMessage = compilerError.message;
             }
-            if (stats.compilation.errors.length > 0) {
+            if (stats?.compilation?.errors?.length > 0) {
               errorMessage = stats.compilation.errors
                 .map((compilationError) => {
                   let message;
