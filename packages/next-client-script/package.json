@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "chalk": "^4.0.0",
+    "inject-config-loader": "0.1.0",
     "next-transpile-modules": "^4.1.0",
     "path-to-regexp": "6.1.0",
     "webpack": "^4.44.1"

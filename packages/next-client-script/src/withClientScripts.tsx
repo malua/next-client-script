@@ -107,7 +107,25 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
                   'ReactLoadablePlugin',
                   'BuildManifestPlugin'
                 ].includes(plugin.constructor.name)
-            )
+            ),
+            module: {
+              rules: [
+                {
+                  test: path.resolve(__dirname, "dummy.config"),
+                  use: {
+                    loader: "inject-config-loader",
+                    options: {
+                      field: "front"
+                    }
+                  }
+                }
+              ]
+            },
+            resolve: {
+              alias: {
+                config: path.resolve(__dirname, "dummy.config")
+              }
+            }
           };
 
           const compiler: Compiler = nextWebpack(clientConfig);
