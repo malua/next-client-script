@@ -111,11 +111,11 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             module: {
               rules: [
                 {
-                  test: path.resolve(__dirname, "dummy.config"),
+                  test: path.resolve(__dirname, 'dummy.config'),
                   use: {
-                    loader: "inject-config-loader",
+                    loader: 'inject-config-loader',
                     options: {
-                      field: "front"
+                      field: 'front'
                     }
                   }
                 }
@@ -123,7 +123,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             },
             resolve: {
               alias: {
-                config: path.resolve(__dirname, "dummy.config")
+                config: path.resolve(__dirname, 'dummy.config')
               }
             }
           };
