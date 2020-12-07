@@ -112,7 +112,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
               ...config?.module,
               rules: (config?.module?.rules || []).concat([
                 {
-                  test: path.resolve(__dirname, 'dummy.config'),
+                  test: require.resolve('@M69/next-client-script/config'),
                   use: {
                     loader: 'inject-config-loader',
                     options: {
@@ -121,13 +121,6 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
                   }
                 }
               ])
-            },
-            resolve: {
-              ...config?.resolve,
-              alias: {
-                ...config?.resolve?.alias,
-                config: path.resolve(__dirname, 'dummy.config')
-              }
             }
           };
 

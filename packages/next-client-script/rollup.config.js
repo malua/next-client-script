@@ -8,7 +8,8 @@ export default {
     'src/withClientScripts.tsx',
     'src/ClientScript.tsx',
     'src/ClientWidget.tsx',
-    'src/initWidgets.tsx'
+    'src/initWidgets.tsx',
+    'src/config.ts'
   ],
   output: {
     dir: 'dist',
