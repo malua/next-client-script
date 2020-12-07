@@ -12,7 +12,7 @@
     "initWidgets.*",
     "withClientScripts.*",
     "tslib.*",
-    "config.js"
+    "config.*"
   ],
   "engines": {
     "node": ">=10"
@@ -21,7 +21,7 @@
     "dev": "rm -rf ./dist && rollup -c rollup.config.js --watch",
     "build": "rm -rf ./dist && rollup -c rollup.config.js",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && tsc --noEmit",
-    "prepublishOnly": "yarn lint && yarn build && cp dist/* . && cp ../../README.md . && cp ../../CHANGELOG.md . && cp src/config.js ."
+    "prepublishOnly": "yarn lint && yarn build && cp dist/* . && cp ../../README.md . && cp ../../CHANGELOG.md ."
   },
   "dependencies": {
     "chalk": "^4.0.0",
