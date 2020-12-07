@@ -107,21 +107,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
                   'ReactLoadablePlugin',
                   'BuildManifestPlugin'
                 ].includes(plugin.constructor.name)
-            ),
-            module: {
-              ...config?.module,
-              rules: (config?.module?.rules || []).concat([
-                {
-                  test: require.resolve('@M69/next-client-script/config'),
-                  use: {
-                    loader: 'inject-config-loader',
-                    options: {
-                      field: 'front'
-                    }
-                  }
-                }
-              ])
-            }
+            )
           };
 
           const compiler: Compiler = nextWebpack(clientConfig);
