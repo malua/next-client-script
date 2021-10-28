@@ -12,6 +12,7 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "jsx": "react",
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "noUnusedParameters": true
   }
