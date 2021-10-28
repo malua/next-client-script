@@ -21,7 +21,7 @@ sonarqube:
   allow_failure: true
   only:
     refs:
-      - main
+      - fork
 
 publish:
   stage: publish
@@ -36,4 +36,4 @@ publish:
     - npm publish
   only:
     refs:
-      - main
+      - fork
