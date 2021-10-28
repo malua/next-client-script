@@ -131,7 +131,11 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
 
             const errorsLength = stats?.compilation?.errors?.length;
 
-            if (typeof errorsLength === 'number' && errorsLength > 0) {
+            if (
+              stats?.compilation?.errors &&
+              typeof errorsLength === 'number' &&
+              errorsLength > 0
+            ) {
               errorMessage = stats.compilation.errors
                 .map((compilationError) => {
                   let message;
