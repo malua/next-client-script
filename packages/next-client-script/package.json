@@ -1,6 +1,6 @@
 {
   "name": "@M69/next-client-script",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Add a separate client entry point to your Next.js pages.",
   "repository": "https://gitlab.com/M69/marketing/next-client-script",
   "author": "tinkerscript",
@@ -25,13 +25,13 @@
   },
   "dependencies": {
     "chalk": "^4.0.0",
-    "next-transpile-modules": "^4.1.0",
+    "next-transpile-modules": "9.0.0",
     "path-to-regexp": "6.1.0",
     "webpack": "^4.44.1"
   },
   "peerDependencies": {
-    "next": "^9.5.0",
-    "react": "^16.8.0"
+    "next": ">= 9.5.0",
+    "react": ">= 16.8.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "13.0.0",
