@@ -64,7 +64,11 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             })
           )
         };
-        if (config.module?.rules?.[2]?.oneOf) {
+        if (
+          config.module?.rules?.[2] &&
+          typeof config.module.rules[2] === 'object' &&
+          typeof config.module.rules[2].oneOf === 'object'
+        ) {
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const {issuer, ...oneOf5} = config.module.rules[2].oneOf[5];
           config.module.rules[2].oneOf[5] = oneOf5;
