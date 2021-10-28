@@ -56,14 +56,15 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           clientScriptsByPath[pagePath] = NEXT_PATH + publicPath;
         });
 
-        config = {
-          ...config,
-          plugins: config.plugins?.concat(
-            new nextWebpack.DefinePlugin({
-              CLIENT_SCRIPTS_BY_PATH: JSON.stringify(clientScriptsByPath)
-            })
-          )
-        };
+        const dp = config.plugins?.find(plugin => plugin.constructor.name == 'DefinePlugin');
+
+        if (dp) {
+          console.log('Injecting custom definitions...');
+          (dp as any).definitions.CLIENT_SCRIPTS_BY_PATH = JSON.stringify(clientScriptsByPath);
+        } else {
+          console.error('Injecting custom definitions error: DefinePlugin not found');
+        }
+
         if (
           config.module?.rules?.[2] &&
           typeof config.module.rules[2] === 'object' &&
