@@ -128,10 +128,10 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             if (compilerError) {
               errorMessage = compilerError.message;
             }
-            if (
-              Array.isArray(stats?.compilation?.errors) &&
-              stats?.compilation?.errors?.length > 0
-            ) {
+
+            const errorsLength = stats?.compilation?.errors?.length;
+
+            if (typeof errorsLength === 'number' && errorsLength > 0) {
               errorMessage = stats.compilation.errors
                 .map((compilationError) => {
                   let message;
