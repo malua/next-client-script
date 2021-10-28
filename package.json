@@ -5,14 +5,9 @@
   "repository": "https://gitlab.com/M69/marketing/next-client-script",
   "author": "tinkerscript",
   "license": "MIT",
+  "main": "dist/withClientScripts.js",
   "files": [
-    "ClientScript.*",
-    "ClientScriptsByPath.*",
-    "ClientWidget.*",
-    "initWidgets.*",
-    "withClientScripts.*",
-    "tslib.*",
-    "config.*"
+    "dist"
   ],
   "engines": {
     "node": ">=10"
