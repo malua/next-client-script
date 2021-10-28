@@ -1,4 +1,4 @@
-import {DocumentContext} from 'next/dist/next-server/lib/document-context';
+import {HtmlContext} from 'next/dist/shared/lib/utils';
 import {pathToRegexp} from 'path-to-regexp';
 import React, {useContext, ScriptHTMLAttributes} from 'react';
 import ClientScriptsByPath from './ClientScriptsByPath';
@@ -17,7 +17,7 @@ export default function ClientScript({
   type = 'text/javascript',
   ...rest
 }: ScriptHTMLAttributes<HTMLScriptElement>) {
-  const context = useContext(DocumentContext);
+  const context: any = useContext(HtmlContext);
 
   // Query params and hashes are already removed from this path.
   const pagePath = context.__NEXT_DATA__.page;

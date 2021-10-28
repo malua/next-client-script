@@ -64,6 +64,13 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             })
           )
         };
+        if (config.module?.rules[2].oneOf) {
+          const {issuer, ...oneOf5} = config.module.rules[2].oneOf[5];
+          config.module.rules[2].oneOf[5] = oneOf5;
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const {issuer: _issuer, ...oneOf6} = config.module.rules[2].oneOf[6];
+          config.module.rules[2].oneOf[6] = oneOf6;
+        }
 
         if (isServer) {
           return config;
