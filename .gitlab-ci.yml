@@ -1,0 +1,39 @@
+default:
+  tags:
+    - aws
+
+stages:
+  - publish
+
+variables:
+  DOCKER_DRIVER: overlay2
+  SONAR_HOST_URL: "http://sonarqube-sonarqube.tools:9000"
+
+sonarqube:
+  tags:
+    - test
+  stage: publish
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  script:
+    - sonar-scanner -Dsonar.projectKey=strapi-wysiwyg -Dsonar.sources=. -Dsonar.login=$SONAR_TOKEN
+  allow_failure: true
+  only:
+    refs:
+      - main
+
+publish:
+  stage: publish
+  image: node:14.16.0
+  script:
+    - yarn config set cache-folder .yarn-cache
+    - echo "t $CI_JOB_TOKEN"
+    - npm config set '//gitlab.com/api/v4/projects/19563801/packages/npm/:_authToken' $CI_JOB_TOKEN
+    - yarn install --pure-lockfile --cache-folder=.yarn-cache
+    - yarn build
+    - yarn version --new-version 1.0.$CI_PIPELINE_IID --no-git-tag-version
+    - npm publish
+  only:
+    refs:
+      - main
