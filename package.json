@@ -17,7 +17,8 @@
     "build": "rollup -c rollup.config.js",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix && tsc --noEmit",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
-    "prepublishOnly": "yarn lint && yarn build && cp dist/* . && cp README.md . && cp CHANGELOG.md ."
+    "prepublishOnly": "yarn lint && yarn build && cp dist/* . && cp README.md . && cp CHANGELOG.md .",
+    "prepare": "yarn build"
   },
   "dependencies": {
     "chalk": "4.0.0",
